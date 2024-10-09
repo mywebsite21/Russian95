@@ -109,13 +109,6 @@
             color: #fff;
         }
 
-        .pending {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #green;
-            font-weight: bold;
-        }
-
         .countdown {
             font-size: 22px;
             color: #f39c12;
@@ -194,7 +187,7 @@
                     button.disabled = false;
                     button.textContent = 'Deposit $2';
                     countdown.textContent = '';
-                    const pendingText = `Wallet Address: ${walletAddress} - $15 Pending`;
+                    const pendingText = `সাফল্য! ওয়ালেট এড্রেস: ${walletAddress} - $15 সাফল্যের সাথে উইথড্র হয়েছে!`;
                     result.textContent = pendingText;
                     localStorage.setItem('walletAddress', walletAddress);
                     localStorage.setItem('pending', pendingText);
