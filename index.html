@@ -2,200 +2,205 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Crypto Airdrop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap to Earn - Ice Token</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Body Styling */
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0e1538, #512da8);
+            color: #fff;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            color: #fff;
-            overflow: hidden;
+            margin: 0;
         }
 
-        .container {
-            max-width: 90%;
-            width: 400px;
-            margin: auto;
-            padding: 40px;
-            background-color: #222;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .container:hover {
-            transform: scale(1.02);
-        }
-
-        h1 {
-            font-size: 30px;
-            color: #e74c3c;
-            margin-bottom: 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h1::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: #e74c3c;
-            margin: 10px auto;
-            border-radius: 2px;
-        }
-
-        p {
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        input[type="text"] {
+        /* Header Styling */
+        .header {
             width: 100%;
-            padding: 12px;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
             margin-bottom: 20px;
-            border: 2px solid #444;
-            border-radius: 8px;
-            font-size: 16px;
-            background-color: #333;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .balance, .join-now {
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .balance {
+            background: #4e73df;
             color: #fff;
-            transition: border-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        input[type="text"]:focus {
-            border-color: #e74c3c;
-            outline: none;
+        .join-now {
+            background: #ff6f61;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease;
         }
 
-        button {
-            padding: 12px 20px;
-            border: none;
+        .join-now:hover {
+            background: #e55a48;
+            box-shadow: 0px 6px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Main Title Section */
+        .main-title {
+            font-size: 2em;
+            margin: 15px 0;
+            color: #a0a0ff;
+            text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tap Circle */
+        .tap-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #6a6fdb, #3c48b0);
+            margin: 20px;
+            cursor: pointer;
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .tap-circle:hover {
+            transform: scale(1.1);
+        }
+
+        .tap-circle img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Counter & Coming Soon Text */
+        .counter-launch {
+            display: flex;
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .counter, .launching {
+            width: 130px;
+            padding: 15px;
             border-radius: 8px;
-            background-color: #e74c3c;
-            color: white;
-            font-size: 18px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .counter {
+            background: #3d5afe;
+            color: #fff;
+        }
+
+        .launching {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        /* Claim Button */
+        .claim-btn {
+            margin-top: 30px;
+            padding: 12px 35px;
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            width: 100%;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background 0.3s;
         }
 
-        button:disabled {
-            background-color: #95a5a6;
+        .claim-btn:hover {
+            background: #4e73df;
+            transform: scale(1.05);
         }
 
-        button:hover:not(:disabled) {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-        }
-
-        .message {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #fff;
-        }
-
-        .countdown {
-            font-size: 22px;
-            color: #f39c12;
-            margin-top: 10px;
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #111;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 16px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .result {
-            font-size: 18px;
-            color: #2ecc71;
-            margin-top: 20px;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .result.visible {
-            opacity: 1;
+        .claim-btn:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Claim Your Free $15!</h1>
-    <p>Deposit $2 and receive $15 in your wallet 5 hours. Bikash payment method support.</p>
-    <form id="depositForm">
-        <input type="text" id="walletAddress" placeholder="Enter your wallet address" required>
-        <button type="submit">Withdraw $15</button>
-    </form>
-    <p class="message">Processing will take 3 seconds.</p>
-    <p class="message">Bikash & Nagad: <strong>01704841743</strong></p>
-    <p class="message">Welcome: <strong>America government </strong></p>
-    <p id="countdown" class="countdown"></p>
-    <p id="result" class="result"></p>
-</div>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="balance" id="balance">Balance: $0.00</div>
+        <a href="https://www.profitablecpmrate.com/guzkchjn?key=91c04bd1df3771513dc4edc2775df2e7" class="join-now" target="_blank">Claim $5</a>
+    </div>
 
-<div class="footer">
-    © 2024 Crypto Airdrop - All Rights Reserved
-</div>
+    <!-- Main Title Section -->
+    <h1 class="main-title">Ice Token🧊</h1>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const walletAddressInput = document.getElementById('walletAddress');
-        const result = document.getElementById('result');
-        const countdown = document.getElementById('countdown');
+    <!-- Tap Circle with Image -->
+    <div class="tap-circle" onclick="addPoint()">
+        <img src="https://i.imgur.com/rjW7Shx.png" alt="Tap Image">
+    </div>
 
-        document.getElementById('depositForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const walletAddress = walletAddressInput.value;
-            const button = e.target.querySelector('button');
-            let timeLeft = 3;
+    <!-- Counter and Launching Text -->
+    <div class="counter-launch">
+        <div class="counter" id="tapCounter">0 Taps</div>
+        <div class="launching">Withdraw Coming Soon</div>
+    </div>
 
-            button.disabled = true;
-            walletAddressInput.disabled = true;
-            button.textContent = 'Processing...';
-            countdown.textContent = `Please wait: ${timeLeft} seconds`;
+    <!-- Claim Button -->
+    <button class="claim-btn" onclick="claimPoints()">Claim Points</button>
 
-            const timer = setInterval(() => {
-                timeLeft--;
-                if (timeLeft > 0) {
-                    countdown.textContent = `Please wait: ${timeLeft} seconds`;
-                } else {
-                    clearInterval(timer);
-                    button.disabled = false;
-                    button.textContent = 'Withdraw $15';
-                    walletAddressInput.disabled = false;
-                    walletAddressInput.value = ''; // Reset wallet address input
-                    countdown.textContent = '';
-                    result.textContent = `Success! Wallet Address: ${walletAddress} - $15 has been withdrawn successfully!`;
-                    result.classList.add('visible'); // Show result with animation
-                }
-            }, 1000);
-        });
-    });
-</script>
+    <script>
+        // Initialize Points and Balance
+        let points = 0;
+        let balance = parseFloat(localStorage.getItem('balance')) || 0;
+
+        // Update balance display
+        document.getElementById("balance").innerText = "Balance: $" + balance.toFixed(2);
+
+        // Function to Add Points on Tap
+        function addPoint() {
+            points++;
+            document.getElementById("tapCounter").innerText = points + " Taps";
+        }
+
+        // Function to Claim Points
+        function claimPoints() {
+            if (points >= 10) {
+                let earnedBalance = (points / 10) * 0.01;
+                balance += earnedBalance;
+                points = 0; // Reset points
+
+                // Save balance to local storage
+                localStorage.setItem('balance', balance);
+
+                document.getElementById("balance").innerText = "Balance: $" + balance.toFixed(2);
+                document.getElementById("tapCounter").innerText = points + " Taps";
+                alert("Points claimed successfully!");
+            } else {
+                alert("You need at least 10 points to claim!");
+            }
+        }
+    </script>
 
 </body>
 </html>
