@@ -1,206 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tap to Earn - Ice Token</title>
+    <meta name="description" content="ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম যেখানে আপনি সহজেই আয় করতে পারবেন">
+    <meta name="keywords" content="অনলাইন ইনকাম, বিকাশ, আয়, সহজ কাজ">
+    <meta name="author" content="Innovative Design">
+    <title>ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* Body Styling */
+        /* Global Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0e1538, #512da8);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff;
+            color: #333;
+        }
+
+        h1, h2, p {
             margin: 0;
         }
 
-        /* Header Styling */
-        .header {
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .balance, .join-now {
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .balance {
-            background: #4e73df;
-            color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .join-now {
-            background: #ff6f61;
-            color: #fff;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .join-now:hover {
-            background: #e55a48;
-            box-shadow: 0px 6px 10px rgba(255, 0, 0, 0.3);
-        }
-
-        /* Main Title Section */
-        .main-title {
-            font-size: 2em;
-            margin: 15px 0;
-            color: #a0a0ff;
-            text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Tap Circle */
-        .tap-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(145deg, #6a6fdb, #3c48b0);
-            margin: 20px;
-            cursor: pointer;
-            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        .tap-circle:hover {
-            transform: scale(1.1);
-        }
-
-        .tap-circle img {
-            width: 90%;
-            height: 90%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        /* Counter & Coming Soon Text */
-        .counter-launch {
-            display: flex;
-            gap: 20px;
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, rgba(0, 150, 136, 0.9), rgba(255, 87, 34, 0.9));
+            color: white;
+            padding: 60px 20px;
             text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
             margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
         }
 
-        .counter, .launching {
-            width: 130px;
-            padding: 15px;
-            border-radius: 8px;
+        header p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            color: #f2f2f2;
+            line-height: 1.8;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            padding: 50px 30px;
+            background: #ffffff;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 30px auto;
+            border-radius: 15px;
+            max-width: 1100px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+            border: 2px solid #00bcd4;
+        }
+
+        .main-content h2 {
+            font-size: 2.8rem;
+            color: #009688;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 1.4rem;
+            color: #777;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .main-content .highlight {
+            font-size: 1.6rem;
             font-weight: bold;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            color: #ff5722;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .counter {
-            background: #3d5afe;
-            color: #fff;
+        /* Deposit Information Section */
+        .deposit-info {
+            padding: 40px 20px;
+            background: #ffffff;
+            margin: 50px auto;
+            max-width: 950px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #ff5722;
         }
 
-        .launching {
-            background: #2ecc71;
-            color: #fff;
+        .deposit-info h2 {
+            font-size: 2.5rem;
+            color: #009688;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
-        /* Claim Button */
-        .claim-btn {
-            margin-top: 30px;
-            padding: 12px 35px;
-            background: #1a73e8;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
+        .deposit-info p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .deposit-info span {
+            font-size: 1.8rem;
             font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s, background 0.3s;
+            color: #ff5722;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .claim-btn:hover {
-            background: #4e73df;
-            transform: scale(1.05);
+        /* Contact Section */
+        .contact-info {
+            background: #009688;
+            color: white;
+            padding: 50px 20px;
+            margin: 50px 0;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .claim-btn:active {
-            transform: scale(0.95);
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background-color: #ff5722;
+            padding: 15px 50px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 1.2rem;
+        }
+
+        /* Lighting Effect */
+        .main-content, .deposit-info, .contact-info {
+            box-shadow: 0 0 20px rgba(0, 150, 136, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .main-content:hover, .deposit-info:hover, .contact-info:hover {
+            box-shadow: 0 0 30px rgba(0, 150, 136, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .deposit-info h2 {
+                font-size: 2rem;
+            }
+
+            .deposit-info p, .contact-info p {
+                font-size: 1.3rem;
+            }
+
+            .contact-info a {
+                font-size: 1.3rem;
+                padding: 12px 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-content h2 {
+                font-size: 2rem;
+            }
+
+            .deposit-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info a {
+                font-size: 1.2rem;
+                padding: 10px 30px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <div class="header">
-        <div class="balance" id="balance">Balance: $0.00</div>
-        <a href="https://www.profitablecpmrate.com/guzkchjn?key=91c04bd1df3771513dc4edc2775df2e7" class="join-now" target="_blank">Claim $5</a>
-    </div>
+<header>
+    <h1>এটি একটি ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম</h1>
+    <p>এখানে আমরা আপনাকে খুব সহজে কাজ দিব এবং আয় করার সুযোগ করে দিব।</p>
+</header>
 
-    <!-- Main Title Section -->
-    <h1 class="main-title">Ice Token🧊</h1>
+<section class="main-content">
+    <h2>আমাদের প্যাকেজ প্রাইস ৫০০ টাকা</h2>
+    <p>এখনই আপনি আমাদের ৫০০ টাকার প্যাকেজ কিনে শুরু করতে পারেন। প্রতিদিন আপনি <span class="highlight">৬০০ টাকা থেকে ৭০০ টাকা</span> আয় করতে পারবেন।</p>
+    <p>এখানে আপনাকে কোনও দক্ষতার প্রয়োজন নেই, শুধু টাইপিং জানলেই হবে।</p>
+</section>
 
-    <!-- Tap Circle with Image -->
-    <div class="tap-circle" onclick="addPoint()">
-        <img src="https://i.imgur.com/rjW7Shx.png" alt="Tap Image">
-    </div>
+<section class="deposit-info">
+    <h2>ডিপোজিট করুন এবং আয় শুরু করুন</h2>
+    <p>ডিপোজিট করার জন্য নিচে উল্লেখিত বিকাশ নম্বরে টাকা পাঠান:</p>
+    <p><span>বিকাশ নম্বর: 01704841743</span></p>
+    <p>ডিপোজিট করার পরে আপনি কাজ শুরু করতে পারবেন এবং নিয়মিত আয় করতে পারবেন।</p>
+</section>
 
-    <!-- Counter and Launching Text -->
-    <div class="counter-launch">
-        <div class="counter" id="tapCounter">0 Taps</div>
-        <div class="launching">Withdraw Coming Soon</div>
-    </div>
+<section class="contact-info">
+    <h2>যোগাযোগ করুন</h2>
+    <p>যেকোনো সাহায্য বা প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন:</p>
+    <a href="https://wa.me/8801704841743">WhatsApp</a>
+</section>
 
-    <!-- Claim Button -->
-    <button class="claim-btn" onclick="claimPoints()">Claim Points</button>
-
-    <script>
-        // Initialize Points and Balance
-        let points = 0;
-        let balance = parseFloat(localStorage.getItem('balance')) || 0;
-
-        // Update balance display
-        document.getElementById("balance").innerText = "Balance: $" + balance.toFixed(2);
-
-        // Function to Add Points on Tap
-        function addPoint() {
-            points++;
-            document.getElementById("tapCounter").innerText = points + " Taps";
-        }
-
-        // Function to Claim Points
-        function claimPoints() {
-            if (points >= 10) {
-                let earnedBalance = (points / 10) * 0.01;
-                balance += earnedBalance;
-                points = 0; // Reset points
-
-                // Save balance to local storage
-                localStorage.setItem('balance', balance);
-
-                document.getElementById("balance").innerText = "Balance: $" + balance.toFixed(2);
-                document.getElementById("tapCounter").innerText = points + " Taps";
-                alert("Points claimed successfully!");
-            } else {
-                alert("You need at least 10 points to claim!");
-            }
-        }
-    </script>
+<footer>
+    <p>&copy; 2024 | অনলাইন ইনকাম প্ল্যাটফর্ম - সকল অধিকার সংরক্ষিত</p>
+</footer>
 
 </body>
 </html>
