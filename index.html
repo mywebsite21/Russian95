@@ -80,7 +80,7 @@
             const codeInput = document.getElementById('code').value;
 
             // Check if the code is correct and unused
-            if (codeInput === '8757' && !usedCodes.includes(codeInput)) {
+            if (codeInput === 'yy' && !usedCodes.includes(codeInput)) {
                 usedCodes.push(codeInput); // Mark code as used
                 localStorage.setItem('usedCodes', JSON.stringify(usedCodes)); // Save in localStorage
                 document.querySelector('.game-area').style.display = 'block';
