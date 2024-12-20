@@ -1,253 +1,133 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম যেখানে আপনি সহজেই আয় করতে পারবেন">
-    <meta name="keywords" content="অনলাইন ইনকাম, বিকাশ, আয়, সহজ কাজ">
-    <meta name="author" content="Innovative Design">
-    <title>ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>Head or Tail Game</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: #fff;
+            text-align: center;
             margin: 0;
             padding: 0;
-            background: #f0f8ff;
-            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        h1, h2, p {
-            margin: 0;
-        }
-
-        /* Header Section */
-        header {
-            background: linear-gradient(135deg, rgba(0, 150, 136, 0.9), rgba(255, 87, 34, 0.9));
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            font-weight: 600;
-            margin-top: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.4rem;
-            margin-top: 10px;
-            color: #f2f2f2;
-            line-height: 1.8;
-        }
-
-        /* Main Content Section */
-        .main-content {
-            padding: 50px 30px;
-            background: #ffffff;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin: 30px auto;
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
             border-radius: 15px;
-            max-width: 1100px;
-            position: relative;
-            transition: transform 0.3s ease-in-out;
-            border: 2px solid #00bcd4;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 90%;
         }
-
-        .main-content h2 {
-            font-size: 2.8rem;
-            color: #009688;
-            margin-bottom: 20px;
-        }
-
-        .main-content p {
-            font-size: 1.4rem;
-            color: #777;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .main-content .highlight {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #ff5722;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Deposit Information Section */
-        .deposit-info {
-            padding: 40px 20px;
-            background: #ffffff;
-            margin: 50px auto;
-            max-width: 950px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid #ff5722;
-        }
-
-        .deposit-info h2 {
-            font-size: 2.5rem;
-            color: #009688;
+        h1 {
+            font-size: 28px;
             margin-bottom: 15px;
-            text-transform: uppercase;
+            color: #ffcc00;
+            text-shadow: 0 0 20px #ffcc00, 0 0 30px #ff6600;
         }
-
-        .deposit-info p {
-            font-size: 1.5rem;
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 12px;
             margin-bottom: 20px;
-            color: #777;
-            line-height: 1.6;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
         }
-
-        .deposit-info span {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ff5722;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        button {
+            padding: 12px 20px;
+            background: linear-gradient(120deg, #ff6600, #ffcc00);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        /* Contact Section */
-        .contact-info {
-            background: #009688;
-            color: white;
-            padding: 50px 20px;
-            margin: 50px 0;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.7);
         }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .game-area {
+            display: none;
         }
-
-        .contact-info p {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
         }
-
-        .contact-info a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            background-color: #ff5722;
-            padding: 15px 50px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            background-color: #d32f2f;
-        }
-
-        /* Footer Section */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 1.2rem;
-        }
-
-        /* Lighting Effect */
-        .main-content, .deposit-info, .contact-info {
-            box-shadow: 0 0 20px rgba(0, 150, 136, 0.3);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .main-content:hover, .deposit-info:hover, .contact-info:hover {
-            box-shadow: 0 0 30px rgba(0, 150, 136, 0.6);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            .main-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .deposit-info h2 {
-                font-size: 2rem;
-            }
-
-            .deposit-info p, .contact-info p {
-                font-size: 1.3rem;
-            }
-
-            .contact-info a {
-                font-size: 1.3rem;
-                padding: 12px 35px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            .main-content h2 {
-                font-size: 2rem;
-            }
-
-            .deposit-info h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-info a {
-                font-size: 1.2rem;
-                padding: 10px 30px;
-            }
+        .lose {
+            color: #ff0000;
         }
     </style>
+    <script>
+        // Store used codes in localStorage to persist data even after reload
+        const usedCodes = JSON.parse(localStorage.getItem('usedCodes')) || [];
+
+        function verifyCode() {
+            const codeInput = document.getElementById('code').value;
+
+            // Check if the code is correct and unused
+            if (codeInput === '8757' && !usedCodes.includes(codeInput)) {
+                usedCodes.push(codeInput); // Mark code as used
+                localStorage.setItem('usedCodes', JSON.stringify(usedCodes)); // Save in localStorage
+                document.querySelector('.game-area').style.display = 'block';
+                document.querySelector('.code-section').style.display = 'none';
+                alert('Code Verified! Start the game.');
+            } else if (usedCodes.includes(codeInput)) {
+                alert('This code has already been used. Please enter a new code.');
+            } else {
+                alert('Invalid Code! Please try again.');
+            }
+        }
+
+        function playGame(choice) {
+            const resultText = document.querySelector('.result');
+            const gameArea = document.querySelector('.game-area');
+            const codeSection = document.querySelector('.code-section');
+
+            // Always lose and show message
+            resultText.textContent = "You Lost! Please deposit again to try. Thank you.";
+            resultText.className = 'result lose';
+            resultText.style.display = 'block';
+
+            // Hide game area and show code section after 10 seconds
+            setTimeout(() => {
+                resultText.style.display = 'none';
+                gameArea.style.display = 'none';
+                codeSection.style.display = 'block';
+                document.getElementById('code').value = ''; // Clear the input
+            }, 10000);
+        }
+    </script>
 </head>
 <body>
-
-<header>
-    <h1>এটি একটি ট্রাস্ট অনলাইন ইনকাম প্লাটফর্ম</h1>
-    <p>এখানে আমরা আপনাকে খুব সহজে কাজ দিব এবং আয় করার সুযোগ করে দিব।</p>
-</header>
-
-<section class="main-content">
-    <h2>আমাদের প্যাকেজ প্রাইস ৫০০ টাকা</h2>
-    <p>এখনই আপনি আমাদের ৫০০ টাকার প্যাকেজ কিনে শুরু করতে পারেন। প্রতিদিন আপনি <span class="highlight">৬০০ টাকা থেকে ৭০০ টাকা</span> আয় করতে পারবেন।</p>
-    <p>এখানে আপনাকে কোনও দক্ষতার প্রয়োজন নেই, শুধু টাইপিং জানলেই হবে।</p>
-</section>
-
-<section class="deposit-info">
-    <h2>ডিপোজিট করুন এবং আয় শুরু করুন</h2>
-    <p>ডিপোজিট করার জন্য নিচে উল্লেখিত বিকাশ নম্বরে টাকা পাঠান:</p>
-    <p><span>বিকাশ নম্বর: 01704841743</span></p>
-    <p>ডিপোজিট করার পরে আপনি কাজ শুরু করতে পারবেন এবং নিয়মিত আয় করতে পারবেন।</p>
-</section>
-
-<section class="contact-info">
-    <h2>যোগাযোগ করুন</h2>
-    <p>যেকোনো সাহায্য বা প্রশ্নের জন্য আমাদের সাথে যোগাযোগ করুন:</p>
-    <a href="https://wa.me/8801704841743">WhatsApp</a>
-</section>
-
-<footer>
-    <p>&copy; 2024 | অনলাইন ইনকাম প্ল্যাটফর্ম - সকল অধিকার সংরক্ষিত</p>
-</footer>
-
+    <div class="container">
+        <h1>Head or Tail Game</h1>
+        <p>Send Tk 100 to this Bikash number: <strong>01704841743</strong> and get a code to start the game. Win Tk 510 if you win!</p>
+        <p>Enter the code below to start the game:</p>
+        <div class="code-section">
+            <input type="text" id="code" placeholder="Enter Code">
+            <button onclick="verifyCode()">Verify Code</button>
+        </div>
+        <div class="game-area">
+            <h2>Choose Head or Tail</h2>
+            <button onclick="playGame('Head')">Head</button>
+            <button onclick="playGame('Tail')">Tail</button>
+            <div class="result" style="display: none;"></div>
+        </div>
+    </div>
 </body>
 </html>
